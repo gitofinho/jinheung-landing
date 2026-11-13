@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="ko" data-type="service" data-radius="soft" data-buttons="block" data-motion>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>진흥세무감정평가법인: 부동산 감정평가와 세무 신고를 한 법인에서</title>
+<meta name="description" content="상속·증여·양도 부동산의 시가를 감정평가하고 그 가액으로 세금 신고까지 맡는 세무사·감정평가사 법인. 서울 강남구 역삼동.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="진흥세무감정평가법인: 부동산 감정평가와 세무 신고를 한 법인에서">
+<meta property="og:description" content="세무사와 감정평가사가 한 팀으로 시가 감정부터 상속세·증여세·양도소득세 신고까지 맡습니다.">
+<meta property="og:image" content="share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#ecebe7">
+<!-- <link rel="canonical" href="https://[the client's domain]/"> : add once the domain exists -->
+<meta name="site-kind" content="other">
+<meta name="page-type" content="service">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- the dealt pairing (Red Hat Display / Red Hat Text) carries Latin and figures; IBM Plex Sans KR carries Hangul -->
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400..700&family=Red+Hat+Text:wght@400..600&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/backgrounds/backgrounds.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<link rel="stylesheet" href="assets/icons/icon.css">
+<link rel="stylesheet" href="assets/diagrams/diagram.css">
+<style>
+:root {
+  --p-bg: #ecebe7; --p-surface: #e1dfd9; --p-ink: #38450f; --p-muted: #5a6537;
+  --p-accent: #38450f; --p-accent-ink: #ecebe7; --p-action: #38450f; --p-action-ink: #ecebe7;
+  --p-inv-bg: #38450f; --p-inv-surface: #435020; --p-inv-ink: #ecebe7; --p-inv-muted: #bbbfaf;
+  --p-inv-accent: #ecebe7; --p-inv-accent-ink: #38450f; --p-inv-action: #ecebe7; --p-inv-action-ink: #38450f;
+  --font-display: "Red Hat Display", system-ui, sans-serif;
+  --font-text: "Red Hat Text", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.025em;
+  --display-tracking-xl: -0.035em;
+}
+</style>
+<!-- Korean setting (page CSS): Hangul falls through to IBM Plex Sans KR after the dealt Latin faces; Hangul fills the
+     em box, so the hero type steps down to the optical size of the Latin pairing and opens its leading; words never
+     break inside a word (keep-all). -->
+<style>
+:root {
+  --font-display: "Red Hat Display", "IBM Plex Sans KR", system-ui, sans-serif;
+  --font-text: "Red Hat Text", "IBM Plex Sans KR", system-ui, sans-serif;
+}
+html:lang(ko) { word-break: keep-all; overflow-wrap: break-word; }
+html:lang(ko) { --ly-scale: .84; }
+html:lang(ko) .hero h1 { line-height: 1.16; letter-spacing: -0.03em; }
+html:lang(ko) .hero__over h1 { max-width: none; }
+html:lang(ko) :is(h2, h3) { line-height: 1.24; letter-spacing: -0.02em; }
+</style>
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js">
+<link rel="modulepreload" href="assets/moments/lib.js">
+<link rel="modulepreload" href="assets/moments/photo-chapters/moment.js">
+<link rel="modulepreload" href="assets/moments/word-highlight/moment.js">
+<!-- page CSS: only what sits inside a visual -->
+<style>
+  /* the film hides its words box while it plays; it comes back when the film ends */
+  .hero--film .hero__media:has(> video):not(.is-ended) .hero__over > :first-child { display: none; }
+  /* client logos: one height per row, their own colours */
+  #clients .clients__row { padding-block: var(--s-5) var(--s-6); border-bottom: 1px solid var(--line); }
+  #clients .clients__label { margin: 0 0 var(--s-4); }
+  #clients .clients__label .muted { font-size: var(--t-small); margin-left: var(--s-2); }
+  #clients .section-head + .clients__row { border-top: 1px solid var(--line); }
+  #clients .logos { justify-content: flex-start; align-items: center; gap: var(--s-5) var(--s-7); min-height: 56px; }
+  #clients .logos > img { height: var(--logo-h, 32px); }
+  /* the logos stay one wrapping row below 1024px too (system.css would set them in a centred grid) */
+  @media (max-width: 1023px) { #clients .logos { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: var(--s-4) var(--s-6); } #clients .logos > img { height: calc(var(--logo-h, 32px) * .8); } }
+  @media (max-width: 639px) { #clients .clients__row { padding-block: var(--s-4); } #clients .logos { gap: var(--s-4) var(--s-5); min-height: 0; } #clients .logos > img { height: calc(var(--logo-h, 32px) * .6); } }
+  /* the licence cards: the body's emblem on a flat panel; card text in the full ink (the olive ink softened
+     to 84% falls under 7:1) */
+  #licences .card { --c-text: var(--ink); }
+  /* the booking photograph under its words: the column's foot on a desktop, a 4:3 frame once the split stacks */
+  @media (max-width: 639px) { #booking .grid { display: contents; } #faq .grid { align-content: start; } }
+  @media (max-width: 1023px) { #booking .grid { align-content: start; } #booking .split-col > .frame--fill { height: auto; aspect-ratio: 4 / 3; } }
+  /* the services photograph on a phone: a 4:5 frame under the list, not the rest of two screens */
+  /* each service's line runs under its name and tag, so a row stays one line from 1024 */
+  #services .rows > li > p { grid-column: 1 / -1; }
+  /* a short desktop screen (1024x768): tighter rows so the list keeps to its screen */
+  @media (min-width: 1024px) and (max-height: 800px) { #services .rows > li { padding-block: var(--s-3); } }
+  /* stacked below 1024px, the FAQ's two groups are parted by air, not a rule across the column */
+  @media (max-width: 1023px) { #faq .grid:first-child .faq > .faq__item:last-child { border-bottom: 0; } }
+  @media (min-width: 640px) and (max-width: 1023px) { #services .grid.fill > .frame--fill { flex: none; aspect-ratio: 4 / 5; } }
+  @media (max-width: 639px) { #services .grid.fill > .frame--fill { flex: none; aspect-ratio: 4 / 3; } }
+  /* an upright tablet: these sections stack into two screens (layout-v4.md section 2) */
+  @media (min-width: 640px) and (max-width: 1023px) { #services, #process, #booking { --h: 2; } #process .panel { --p-h: 600px; } }
+  #licences .card > .panel--top { aspect-ratio: auto; height: var(--p-h); --p-h: 340px; }
+  #licences .licence__head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-4); min-height: 48px; }
+  /* the FAQ's second group continues the list: its first row keeps a row's top padding on a desktop */
+  @media (min-width: 640px) { #faq .faq__more .faq > .faq__item:first-child { padding-top: var(--s-5); } }
+  #licences .licence__mark { display: block; height: var(--em-h, 40px); width: auto; }
+  #licences .licence__head > h3 { margin: 0; font-family: var(--font-text); font-weight: 500; font-size: var(--t-card); line-height: 1.3; letter-spacing: -0.01em; color: var(--ink); }
+  @media (max-width: 639px) { #licences .card > .panel--top { --p-h: 104px; } #licences .licence__head { min-height: 40px; } }
+  /* a 320px phone: the two licence cards need a second screen */
+  @media (max-width: 379px) { #licences { --hm: 2; } }
+  /* the process diagram's panel: the height of the steps beside it */
+  #process .panel { --p-h: 440px; }
+  @media (max-width: 639px) { #process .panel { --p-h: 360px; } }
+</style>
+</head>
+<body>
+<!-- type: service (site-kind other)
+     deal: hero film, nav nav-centre, close close-photo, footer footer-visit, rhythm space, buttons block, mark initial,
+           palette olive-on-bone, type red-hat (+ IBM Plex Sans KR for Hangul), radius soft, grounds none (kind other)
+     moments: word-highlight (#why), photo-chapters (#property)
+     film: media/film (HyperFrames source in film/) -->
+<header class="nav nav--centre">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">본문 바로가기</a>
+    <a class="nav__logo" href="#top" translate="no"><span class="mark mark--initial" aria-hidden="true">진</span>진흥세무감정평가법인</a>
+    <nav class="nav__links" aria-label="주 메뉴">
+      <div class="nav__item">
+        <a class="nav__link" href="#services">업무 <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav__menu">
+          <div class="wrap grid">
+            <div class="menu-col span-3">
+              <p class="t-label">세무</p>
+              <a href="#svc-inherit">상속·증여 신고<span>시가 감정과 신고를 함께</span></a>
+              <a href="#svc-transfer">양도소득세 신고<span>취득가액 감정 포함</span></a>
+              <a href="#svc-books">기장과 세무조정<span>개인사업자와 법인</span></a>
+            </div>
+            <div class="menu-col span-3">
+              <p class="t-label">감정평가</p>
+              <a href="#svc-revalue">법인 자산재평가<span>토지·건물을 시가로</span></a>
+              <a href="#svc-collateral">담보·경매·소송 감정<span>금융기관과 법원</span></a>
+              <a href="#svc-compensation">토지 보상평가<span>공익사업 편입 토지</span></a>
+            </div>
+            <a class="menu-card span-3 start-10" href="#property">
+              <div class="panel"><img class="frame__img" src="assets/img/photo-f121586717-500.jpg" alt="언덕을 따라 늘어선 아파트 단지" width="500" height="225"></div>
+              <span class="t-card">평가하는 부동산</span>
+              <span class="t-small muted">꼬마빌딩부터 농지까지</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="nav__item"><a class="nav__link" href="#property">부동산</a></div>
+      <div class="nav__item"><a class="nav__link" href="#clients">고객</a></div>
+      <div class="nav__item"><a class="nav__link" href="#process">절차</a></div>
+      <div class="nav__item"><a class="nav__link" href="#licences">자격</a></div>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--primary" href="#booking">상담 예약하기</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="메뉴">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+<main id="top">
+  <!-- HERO (film): the poster is a still of the client's own film, made with HyperFrames (film/); the play control
+       swaps it for the film in the frame. Phones get the portrait cut. -->
+  <section class="hero hero--film" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text hero__in">
+      <div class="hero__media hero__fill">
+        <picture>
+          <source media="(max-aspect-ratio: 1/1)" srcset="media/film/poster-9x16.jpg">
+          <img src="media/film/poster-16x9-1280.jpg" srcset="media/film/poster-16x9-1280.jpg 1280w, media/film/poster-16x9.jpg 1920w" sizes="(max-width: 1440px) 100vw, 1280px" width="1280" height="720" alt="감정평가서의 시가 43.0억 원이 상속세 신고서의 상속재산가액으로 그대로 옮겨지는 장면" style="--ly-pos: 60% 40%; --ly-pos-phone: 50% 0%" fetchpriority="high" data-source="client" data-subject="film still">
+        </picture>
+        <div class="hero__over">
+          <div>
+            <h1 id="hero-h">부동산 감정평가와 세무를 한 법인에서</h1>
+            <p class="hero__lead">상속·증여·양도 때 시가를 정하는 감정평가와 그 가액으로 내는 세금 신고를, 서울 역삼동의 세무사와 감정평가사가 한 팀으로 맡습니다.</p>
+            <div class="btn-row"><a class="btn btn--primary" href="#booking">상담 예약하기<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="#services">업무 보기</a></div>
+          </div>
+          <button class="ly-play" type="button" data-film="media/film/hero-16x9.mp4" data-film-phone="media/film/hero-9x16.mp4">
+            <span class="ly-play__disc"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4.5 2.6v12.8c0 .8.9 1.3 1.6.9l10.3-6.4c.6-.4.6-1.3 0-1.7L6.1 1.7c-.7-.4-1.6.1-1.6.9Z" fill="currentColor"/></svg></span>
+            <span class="ly-play__label">소개 영상 보기<small>평가서에서 신고서까지, 0:24</small></span>
+          </button>
+        </div>
+      </div>
+    </div></div>
+  </section>
+  <script>
+    /* the portrait cut of the film on an upright screen (layout.js reads data-film when it starts) */
+    (function () {
+      var b = document.querySelector('.hero--film .ly-play');
+      if (b && matchMedia('(max-aspect-ratio: 1/1)').matches) b.dataset.film = b.dataset.filmPhone;
+      var m = b && b.closest('.hero__media');
+      if (m) m.addEventListener('ended', function () { m.classList.add('is-ended'); }, true);
+    })();
+  </script>
+
+  <section class="section" id="services" style="--hm: 2" aria-labelledby="services-h">
+    <div class="wrap">
+      <div class="grid grid--top fill">
+        <div class="span-5">
+          <div class="section-head">
+            <h2 id="services-h">맡는 업무</h2>
+            <p>세무 신고나 감정평가 한 가지만 맡겨도 됩니다. 두 업무가 겹치는 상속·증여·양도에서 차이가 가장 큽니다.</p>
+          </div>
+          <ul class="rows">
+            <li id="svc-inherit"><span class="rows__name">상속·증여 재산 평가와 신고</span><p>시가 감정부터 상속세·증여세 신고까지 함께 맡습니다.</p><span class="rows__value">감정평가 · 세무</span></li>
+            <li id="svc-transfer"><span class="rows__name">양도소득세 신고</span><p>취득가액이 없으면 취득 당시 감정가액으로 신고합니다.</p><span class="rows__value">감정평가 · 세무</span></li>
+            <li id="svc-revalue"><span class="rows__name">법인 자산재평가</span><p>토지·건물을 시가로 다시 매기고 법인세 영향을 계산합니다.</p><span class="rows__value">감정평가 · 세무</span></li>
+            <li id="svc-compensation"><span class="rows__name">토지 보상평가</span><p>수용 토지를 평가하고 보상금 양도세 감면을 따집니다.</p><span class="rows__value">감정평가 · 세무</span></li>
+            <li id="svc-collateral"><span class="rows__name">담보·경매·소송 감정</span><p>금융기관 담보평가와 법원 경매·소송 감정을 맡습니다.</p><span class="rows__value">감정평가</span></li>
+            <li id="svc-books"><span class="rows__name">기장과 세무조정</span><p>장부, 법인세·종합소득세 신고, 세무조사 대응을 맡습니다.</p><span class="rows__value">세무</span></li>
+          </ul>
+        </div>
+        <div class="frame frame--photo frame--fill span-6 start-7">
+          <img class="frame__img" src="assets/img/photo-f126580208-tower-1000.jpg" srcset="assets/img/photo-f126580208-tower-560.jpg 560w, assets/img/photo-f126580208-tower-1000.jpg 1000w" sizes="(max-width: 639px) 100vw, 1000px" width="1000" height="1125" alt="저녁 햇빛을 받는 고층 아파트 단지" loading="lazy" decoding="async" style="object-position: 50% 0%" data-source="stand-in" data-subject="apartment complex">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section statement" id="why" data-moment="word-highlight" aria-label="한 팀으로 일하는 이유">
+    <div class="wrap">
+      <p class="t-label">한 팀으로 일하는 이유</p>
+      <p class="mo-wh__text">상속세는 감정가액에서 시작합니다. 평가액이 1억 원 달라지면 과세가액도 1억 원 달라집니다. 그래서 평가 기준일과 평가 대상을 정하는 일부터 <strong>신고서를 쓰는 세무사</strong>와 함께 합니다.</p>
+    </div>
+  </section>
+
+  <section class="section" id="property" data-moment="photo-chapters" aria-labelledby="property-h">
+    <div class="wrap mo-ph">
+      <div class="mo-ph__head"><h2 id="property-h">평가하는 부동산</h2><p>부동산마다 시가를 정하는 방법과 세금에서 따질 점이 다릅니다.</p></div>
+      <ol class="mo-ph__list">
+        <li class="mo-ph__ch">
+          <figure class="mo-ph__pic"><img loading="lazy" decoding="async" src="assets/img/photo-f127996860-960.jpg" srcset="assets/img/photo-f127996860-500.jpg 500w, assets/img/photo-f127996860-960.jpg 960w, assets/img/photo-f127996860-1600.jpg 1600w" sizes="(max-aspect-ratio: 1/1) 250vw, 100vw" alt="역삼동 일대에 빽빽하게 들어선 4~6층 상가건물과 다가구주택" width="960" height="611" data-source="stand-in" data-subject="small commercial buildings"></figure>
+          <h3>꼬마빌딩·상가건물</h3>
+          <p>기준시가와 시가 차이가 커서 국세청이 직접 감정을 의뢰하기도 하는 자산입니다. 신고 전에 감정가액을 먼저 확보합니다.</p>
+        </li>
+        <li class="mo-ph__ch">
+          <figure class="mo-ph__pic"><img loading="lazy" decoding="async" src="assets/img/photo-f121586717.jpg" srcset="assets/img/photo-f121586717-500.jpg 500w, assets/img/photo-f121586717-960.jpg 960w, assets/img/photo-f121586717.jpg 1280w, assets/img/photo-f121586717-1600.jpg 1600w, assets/img/photo-f121586717-2000.jpg 2000w" sizes="(max-aspect-ratio: 1/1) 250vw, 100vw" alt="산 아래로 길게 이어진 노원구 아파트 단지" width="1280" height="577" data-source="stand-in" data-subject="apartment complex"></figure>
+          <h3>아파트·주택</h3>
+          <p>같은 단지의 매매가가 시가로 쓰이기도 해서 평가기간 안의 거래부터 확인합니다. 증여와 담보 평가가 많습니다.</p>
+        </li>
+        <li class="mo-ph__ch">
+          <figure class="mo-ph__pic"><img loading="lazy" decoding="async" src="assets/img/photo-f7570844-960.jpg" srcset="assets/img/photo-f7570844-500.jpg 500w, assets/img/photo-f7570844-960.jpg 960w, assets/img/photo-f7570844-1600.jpg 1600w" sizes="(max-aspect-ratio: 1/1) 250vw, 100vw" alt="산자락 아래 누렇게 익은 논" width="960" height="640" data-source="stand-in" data-subject="farmland"></figure>
+          <h3>토지·농지</h3>
+          <p>공익사업 보상, 농지 상속, 개발 예정지 증여에 쓰입니다. 개별공시지가와 시가의 차이를 함께 봅니다.</p>
+        </li>
+        <li class="mo-ph__ch">
+          <figure class="mo-ph__pic"><img loading="lazy" decoding="async" src="assets/img/photo-f151072483-960.jpg" srcset="assets/img/photo-f151072483-500.jpg 500w, assets/img/photo-f151072483-960.jpg 960w, assets/img/photo-f151072483-1600.jpg 1600w" sizes="(max-aspect-ratio: 1/1) 250vw, 100vw" alt="강 건너로 보이는 여의도 업무지구의 고층 빌딩" width="960" height="722" data-source="stand-in" data-subject="office district"></figure>
+          <h3>업무용 빌딩·법인 자산</h3>
+          <p>사옥, 공장, 물류창고의 자산재평가와 담보평가를 맡습니다. 감정가액이 장부와 세금에 남기는 영향을 같이 계산합니다.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="clients" aria-labelledby="clients-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="clients-h">함께 일한 기관과 기업</h2>
+        <p>금융기관, 공공기관, 기업이 맡긴 부동산 평가와 세무입니다.</p>
+      </div>
+      <div class="clients__row">
+        <p class="clients__label"><span class="t-card">금융기관</span> <span class="muted">담보평가, 경매·공매 감정</span></p>
+        <div class="logos">
+          <img src="assets/clients/kb.svg" alt="KB국민은행" style="--logo-h: 41px" width="125" height="41" loading="lazy" decoding="async">
+          <img src="assets/clients/shinhan.svg" alt="신한은행" style="--logo-h: 30px" width="178" height="30" loading="lazy" decoding="async">
+          <img src="assets/clients/hana.png" alt="하나은행" style="--logo-h: 37px" width="138" height="37" loading="lazy" decoding="async">
+          <img src="assets/clients/ibk.svg" alt="IBK기업은행" style="--logo-h: 34px" width="154" height="34" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="clients__row">
+        <p class="clients__label"><span class="t-card">공공기관</span> <span class="muted">토지 보상평가, 공매 자산 평가</span></p>
+        <div class="logos">
+          <img src="assets/clients/lh.svg" alt="한국토지주택공사" style="--logo-h: 44px" width="117" height="44" loading="lazy" decoding="async">
+          <img src="assets/clients/kamco.svg" alt="한국자산관리공사(캠코)" style="--logo-h: 49px" width="108" height="49" loading="lazy" decoding="async">
+          <img src="assets/clients/hf.svg" alt="한국주택금융공사" style="--logo-h: 28px" width="191" height="28" loading="lazy" decoding="async">
+          <img src="assets/clients/ex.svg" alt="한국도로공사" style="--logo-h: 54px" width="95" height="54" loading="lazy" decoding="async">
+          <img src="assets/clients/kepco.svg" alt="한국전력공사" style="--logo-h: 28px" width="188" height="28" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="clients__row">
+        <p class="clients__label"><span class="t-card">기업</span> <span class="muted">자산재평가, 현물출자 평가, 세무조정</span></p>
+        <div class="logos">
+          <img src="assets/clients/samsung.svg" alt="삼성" style="--logo-h: 28px" width="183" height="28" loading="lazy" decoding="async">
+          <img src="assets/clients/hyundai.svg" alt="현대자동차" style="--logo-h: 26px" width="202" height="26" loading="lazy" decoding="async">
+          <img src="assets/clients/sk.svg" alt="SK" style="--logo-h: 56px" width="72" height="56" loading="lazy" decoding="async">
+          <img src="assets/clients/lg.svg" alt="LG" style="--logo-h: 49px" width="107" height="49" loading="lazy" decoding="async">
+          <img src="assets/clients/lotte.svg" alt="롯데" style="--logo-h: 40px" width="128" height="40" loading="lazy" decoding="async">
+          <img src="assets/clients/posco.svg" alt="포스코" style="--logo-h: 38px" width="140" height="38" loading="lazy" decoding="async">
+          <img src="assets/clients/hanwha.svg" alt="한화" style="--logo-h: 56px" width="86" height="56" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process" style="--hm: 2" aria-labelledby="process-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="process-h">의뢰부터 신고까지 네 단계</h2>
+        <p>첫 상담에서 평가 대상과 신고기한을 정하고, 수수료는 서면으로 알려 드립니다.</p>
+      </div>
+      <div class="grid grid--top fill">
+        <ol class="rows span-5">
+          <li><span class="rows__name"><span class="step-num">1</span>상담과 서류 확인</span><p>등기부등본, 가족관계증명서, 취득 당시 계약서처럼 필요한 서류 목록을 드립니다.</p></li>
+          <li><span class="rows__name"><span class="step-num">2</span>서면 견적과 일정</span><p>평가 대상, 평가 기준일, 신고기한을 정하고 수수료를 서면으로 알려 드립니다.</p></li>
+          <li><span class="rows__name"><span class="step-num">3</span>현장 조사와 감정평가</span><p>감정평가사가 현장을 보고 평가서를 씁니다. 두 곳의 감정이 필요하면 다른 감정평가법인과 일정을 맞춥니다.</p></li>
+          <li><span class="rows__name"><span class="step-num">4</span>신고와 사후 관리</span><p>세무사가 평가서의 가액으로 신고서를 쓰고, 세무서의 소명 요청과 조사에 대응합니다.</p></li>
+        </ol>
+        <!-- one still diagram (a service page holds it still): the one figure the appraisal sets, and the three
+             places it is used -->
+        <div class="panel span-6 start-7" data-dg-still>
+          <div class="dg" data-diagram><script type="application/json">{"layout": "lanes", "pulse": "none", "curve": "curve",
+            "alt": "상속받은 건물 한 채의 감정평가서가 시가 43.0억 원을 정하고, 그 가액이 상속세 신고서, 나중에 팔 때의 취득가액, 상속인 사이의 분할 기준으로 쓰인다.",
+            "input": {"label": "건물", "icon": "ui:building-2", "sub": "역삼동 근린생활시설"},
+            "core": {"label": "감정평가서", "icon": "ui:file-check", "meta": "시가 43.0억 원"},
+            "lanes": [
+              {"label": "상속세", "icon": "ui:file-text", "done": true, "sub": "상속재산가액 43.0억 원"},
+              {"label": "취득가", "icon": "ui:landmark", "done": true, "sub": "나중에 팔 때 43.0억 원"},
+              {"label": "분할", "icon": "ui:users", "done": true, "sub": "상속인별 가액 계산"}
+            ]}</script></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section g2m" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-5 stack-4">
+          <h2 id="faq-h">자주 묻는 질문</h2>
+          <p class="muted">여기 없는 질문은 상담 신청서의 상황 설명 칸에 적어 주세요.</p>
+        </div>
+        <div class="faq span-6 start-7">
+          <div class="faq__item"><h3>상속세 신고 때 감정평가를 꼭 받아야 하나요?</h3><p>의무는 아닙니다. 다만 꼬마빌딩처럼 기준시가와 시가 차이가 큰 부동산은 국세청이 신고 뒤에 직접 감정평가를 해 과세할 수 있어, 미리 받아 두는 편이 안전합니다.</p></div>
+        </div>
+      </div>
+      <div class="grid grid--top faq__more">
+        <div class="faq span-6 start-7">
+          <div class="faq__item"><h3>감정평가는 몇 곳에서 받아야 하나요?</h3><p>기준시가 10억 원 이하 부동산은 한 곳, 그보다 크면 두 곳의 감정가액 평균을 시가로 봅니다. 두 번째 감정은 다른 감정평가법인과 일정을 맞춥니다.</p></div>
+          <div class="faq__item"><h3>상속세와 증여세 신고기한은 언제인가요?</h3><p>상속세는 상속개시일이 속한 달의 말일부터 6개월, 증여세는 증여일이 속한 달의 말일부터 3개월 안입니다. 기한 안에 신고하면 세액의 3%를 공제받습니다.</p></div>
+          <div class="faq__item"><h3>원하는 금액으로 평가해 줄 수 있나요?</h3><p>아니요. 감정가액은 감정평가 실무기준에 따라 감정평가사가 정합니다. 함께 정할 수 있는 것은 평가 기준일과 평가 대상의 범위입니다.</p></div>
+          <div class="faq__item"><h3>수수료는 어떻게 정해지나요?</h3><p>감정평가 수수료는 국토교통부가 고시하는 보수 기준에 따라 평가액 구간별로 정해집니다. 세무 수수료는 재산 규모와 신고 범위를 보고 서면으로 견적을 드립니다.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="licences" aria-labelledby="licences-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="licences-h">세무사와 감정평가사, 두 자격</h2>
+        <p>대표가 두 자격을 모두 가지고 있고, 업무마다 담당 세무사와 감정평가사가 서명합니다.</p>
+      </div>
+      <div class="grid fill">
+        <article class="card card--open span-6">
+          <div class="panel panel--top"><img class="frame__img" src="assets/img/photo-c877-960.jpg" srcset="assets/img/photo-c877-500.jpg 500w, assets/img/photo-c877-960.jpg 960w, assets/img/photo-c877.jpg 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="853" alt="겹겹이 쌓인 두꺼운 책" loading="lazy" decoding="async" data-source="library-057" data-subject="books"></div>
+          <div class="licence__head"><h3>세무사</h3><img class="licence__mark" src="assets/clients/kacpta.svg" alt="한국세무사회" style="--em-h: 32px" width="160" height="32"></div>
+          <p>신고, 세무조정, 세무조사 대응과 불복 청구를 대리하는 자격입니다.</p>
+        </article>
+        <article class="card card--open span-6">
+          <div class="panel panel--top"><img class="frame__img" src="assets/img/photo-f119221397-960.jpg" srcset="assets/img/photo-f119221397-500.jpg 500w, assets/img/photo-f119221397-960.jpg 960w, assets/img/photo-f119221397.jpg 1280w" sizes="(max-width: 1023px) 100vw, 50vw" width="1280" height="640" alt="손에 든 주택 평면도" loading="lazy" decoding="async" style="object-position: 30% 50%" data-source="stand-in" data-subject="floor plan"></div>
+          <div class="licence__head"><h3>감정평가사</h3><img class="licence__mark" src="assets/clients/kapa.svg" alt="한국감정평가사협회" style="--em-h: 44px" width="65" height="44"></div>
+          <p>시가, 담보, 보상, 경매·소송 감정평가서에 서명하는 자격입니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section g2m" id="booking" aria-labelledby="booking-h">
+    <div class="wrap">
+      <div class="grid grid--top fill">
+        <div class="span-5 split-col">
+          <h2 id="booking-h">상담 예약</h2>
+          <p>신청서를 보내 주시면 담당 세무사나 감정평가사가 연락해 상담 일정을 잡습니다. 첫 상담에서 필요한 서류와 수수료를 안내합니다.</p>
+          <div class="frame frame--photo frame--fill split-col__end">
+            <img class="frame__img" src="assets/img/photo-f148427053-960.jpg" srcset="assets/img/photo-f148427053-500.jpg 500w, assets/img/photo-f148427053-960.jpg 960w, assets/img/photo-f148427053.jpg 1280w" sizes="(max-width: 1023px) 100vw, 40vw" width="1280" height="962" alt="멀리 산 아래로 이어지는 서울 아파트와 빌딩" loading="lazy" decoding="async" style="object-position: 50% 62%" data-source="stand-in" data-subject="Seoul cityscape">
+          </div>
+        </div>
+        <div class="span-6 start-7">
+          <form class="form" action="mailto:consult@jinheung.example" method="post" enctype="text/plain" data-endpoint="" data-sent="상담 예약 신청이 들어왔습니다. 영업일 하루 안에 연락드립니다." novalidate>
+            <div class="field"><label for="f-name">이름</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err">
+              <p class="field__error" id="f-name-err" hidden>상담받을 분의 이름을 적어 주세요.</p></div>
+            <div class="field"><label for="f-email">이메일</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" required aria-describedby="f-email-err">
+              <p class="field__error" id="f-email-err" hidden>@가 들어간 이메일 주소를 적어 주세요. 예: name@example.com</p></div>
+            <div class="field"><label for="f-topic">상담 분야</label>
+              <select id="f-topic" name="topic" required aria-describedby="f-topic-err">
+                <option value="">고르세요</option>
+                <option>상속·증여 재산 평가와 신고</option>
+                <option>양도소득세 신고</option>
+                <option>법인 자산재평가</option>
+                <option>토지 보상평가</option>
+                <option>담보·경매·소송 감정</option>
+                <option>기장과 세무조정</option>
+              </select>
+              <p class="field__error" id="f-topic-err" hidden>상담받을 분야를 하나 골라 주세요.</p></div>
+            <div class="field field--full"><label for="f-note">상황 설명(부동산 소재지 포함)</label>
+              <textarea id="f-note" name="note" rows="4"></textarea></div>
+            <div class="btn-row"><button class="btn btn--primary" type="submit">상담 예약하기</button></div>
+            <p class="form__status" role="status" data-form-status></p>
+            <p class="t-small muted" data-assumed>영업일 하루 안에 연락드립니다. 보내 주신 정보는 상담 연락에만 씁니다.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer closing footer--visit" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--photo">
+      <div class="section-head--split">
+        <div><h2 id="close-h">상속·양도 부동산 상담 예약</h2><p class="t-lead">평일 9시부터 18시까지 역삼동 사무소에서 만납니다.</p></div>
+        <a class="btn btn--primary" href="#booking">상담 예약하기<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+      </div>
+      <div class="close__media"><img src="assets/img/photo-f116724907-1280.jpg" srcset="assets/img/photo-f116724907-500.jpg 500w, assets/img/photo-f116724907-960.jpg 960w, assets/img/photo-f116724907-1280.jpg 1280w, assets/img/photo-f116724907-1600.jpg 1600w" sizes="(max-width: 639px) 250vw, (max-width: 1440px) 100vw, 1280px" width="1280" height="720" alt="벚꽃과 개나리 너머로 보이는 아파트" loading="lazy" decoding="async" style="object-position: 50% 40%" data-source="stand-in" data-subject="apartments in spring"></div>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-6 stack-4">
+          <address class="footer__address" data-assumed>서울 강남구 역삼동</address>
+          <p><a class="link" href="https://www.openstreetmap.org/search?query=%EC%97%AD%EC%82%BC%EB%8F%99%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EC%84%9C%EC%9A%B8">지역 보기</a></p>
+        </div>
+        <div class="span-6 start-7 stack-4">
+          <h3>상담 시간</h3>
+          <dl class="hours" data-assumed><dt>월~금</dt><dd>9:00~18:00</dd><dt>토·일·공휴일</dt><dd>휴무</dd></dl>
+        </div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 <span translate="no">진흥세무감정평가법인</span> &nbsp; 표기된 기관·기업명과 로고는 각 소유자의 상표입니다.</span>
+        <a class="credits" href="credits.html">사진: Wikimedia Commons</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<nav class="actionbar" aria-label="빠른 메뉴">
+  <a class="btn btn--primary" href="#booking">상담 예약하기</a>
+</nav>
+
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+<script type="module" src="assets/diagrams/mount.js"></script>
+</body>
+</html>
