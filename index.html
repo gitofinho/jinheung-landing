@@ -61,12 +61,55 @@ html:lang(ko) :is(h2, h3) { line-height: 1.24; letter-spacing: -0.02em; }
 <link rel="modulepreload" href="assets/moments/word-highlight/moment.js">
 <!-- page CSS: only what sits inside a visual -->
 <style>
-  /* the film hides its words box while it plays; it comes back when the film ends */
-  .hero--film .hero__media:has(> video):not(.is-ended) .hero__over > :first-child { display: none; }
+  /* HERO: words left, the film right (16:9; a phone takes the portrait cut under the words) */
+  .hero--play .play__grid { display: grid; grid-template-columns: 5fr 7fr; gap: var(--s-8); align-items: center; height: 100%; }
+  .hero--play .play__chips { display: flex; gap: var(--s-2); margin: 0 0 var(--s-5); }
+  .hero--play .play__chips span { font: 500 var(--t-label)/1 var(--font-text); padding: 8px 12px; border: 1px solid var(--line-strong, var(--line)); border-radius: 999px; }
+  .hero--play h1 { font-size: clamp(38px, 3.6vw, 60px); line-height: 1.16; letter-spacing: -0.03em; max-width: none; }
+  .hero--play .hero__lead { margin-top: var(--s-5); max-width: 34em; }
+  .hero--play .btn-row { margin-top: var(--s-6); }
+  .play__film { position: relative; margin: 0; aspect-ratio: 16 / 9; border-radius: var(--r-lg); overflow: clip; background: var(--p-surface); box-shadow: 0 1px 0 var(--line), 0 30px 60px -30px color-mix(in oklab, var(--p-ink) 35%, transparent); }
+  .play__film video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .play__toggle { position: absolute; right: var(--s-4); bottom: var(--s-4); width: 44px; height: 44px; border-radius: 50%; border: 0; display: grid; place-items: center; background: color-mix(in oklab, var(--p-inv-bg) 88%, transparent); color: var(--p-inv-ink); cursor: pointer; transition: transform .2s var(--ease, ease), background-color .2s; }
+  .play__toggle:hover { transform: scale(1.06); }
+  .play__toggle svg { width: 16px; height: 16px; }
+  .play__toggle .i-play, .play__toggle[aria-pressed="true"] .i-pause { display: none; }
+  .play__toggle[aria-pressed="true"] .i-play { display: block; }
+  @media (max-width: 1023px) { .hero--play .play__grid { grid-template-columns: 1fr; align-content: start; gap: var(--s-6); } }
+  @media (max-width: 639px) { .play__film { aspect-ratio: 9 / 14; max-height: 62svh; justify-self: center; width: 100%; } }
   /* client logos: one height per row, their own colours */
   #clients .clients__row { padding-block: var(--s-5) var(--s-6); border-bottom: 1px solid var(--line); }
   #clients .clients__label { margin: 0 0 var(--s-4); }
   #clients .clients__label .muted { font-size: var(--t-small); margin-left: var(--s-2); }
+  /* CALCULATOR */
+  #calc .calc { align-items: stretch; }
+  .calc__card { display: flex; flex-direction: column; gap: var(--s-4); padding: var(--s-6); border-radius: var(--r-lg); background: var(--p-surface); transition: transform .25s var(--ease, ease), box-shadow .25s; }
+  .calc__card:focus-within, .calc__card:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -24px color-mix(in oklab, var(--p-ink) 45%, transparent); }
+  .calc__card h3 { margin: 0; font: 500 var(--t-card)/1.3 var(--font-text); }
+  .calc__pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3); }
+  .calc__card .field input, .calc__card .field select { background: var(--p-bg); }
+  .calc__out { margin-top: auto; display: grid; gap: var(--s-2); padding-top: var(--s-5); border-top: 1px solid var(--line); }
+  .calc__big { font: var(--display-weight) clamp(32px, 2.8vw, 44px)/1.1 var(--font-display); letter-spacing: -0.03em; color: var(--p-ink); font-variant-numeric: tabular-nums; transition: opacity .2s; }
+  .calc__big.is-tick { opacity: .35; }
+  .calc__note { font-size: var(--t-small); color: var(--muted); }
+  .calc__viz { position: relative; flex: 1 1 auto; min-height: 120px; margin-top: var(--s-4); }
+  .calc__viz::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 6px; margin-top: -3px; border-radius: 3px; background: color-mix(in oklab, var(--p-ink) 12%, transparent); }
+  .calc__fill { position: absolute; left: 0; top: 50%; height: 6px; margin-top: -3px; width: var(--x, 0%); border-radius: 3px; background: var(--p-ink); transition: width .5s var(--ease, ease); }
+  .calc__dot, .calc__mark { position: absolute; top: 50%; left: var(--x, 0%); transition: left .5s cubic-bezier(.22,1,.36,1); }
+  .calc__dot { width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; background: var(--p-ink); box-shadow: 0 0 0 4px var(--p-surface); }
+  .calc__dot--ghost { background: var(--p-surface); border: 2px solid var(--p-ink); }
+  .calc__mark { width: 2px; height: 36px; margin: -18px 0 0 -1px; background: var(--p-ink); opacity: .5; }
+  .calc__dot i, .calc__mark i { position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(100% + 8px); font: 500 13px/1 var(--font-text); font-style: normal; white-space: nowrap; color: var(--p-ink); }
+  .calc__dot--ghost i { bottom: auto; top: calc(100% + 8px); }
+  .calc__ends { position: absolute; left: 0; right: 0; top: calc(50% + 18px); display: flex; justify-content: space-between; font: 13px/1 var(--font-text); color: var(--muted); }
+  .calc__ends i { font-style: normal; }
+  @media (prefers-reduced-motion: reduce) { .calc__dot, .calc__mark, .calc__fill { transition: none; } }
+  @media (max-width: 1023px) { #calc { --h: 2; } }
+  /* services: each row opens the form on its topic */
+  #services .rows > li > a.svc { display: contents; color: inherit; text-decoration: none; }
+  #services .rows > li { position: relative; cursor: pointer; transition: background-color .2s, padding .25s var(--ease, ease); border-radius: 6px; }
+  #services .rows > li:hover, #services .rows > li:focus-within { background: var(--p-surface); padding-inline: var(--s-3); }
+  #services .rows > li:hover .rows__value::after, #services .rows > li:focus-within .rows__value::after { content: " →"; }
   #clients .section-head + .clients__row { border-top: 1px solid var(--line); }
   #clients .logos { justify-content: flex-start; align-items: center; gap: var(--s-5) var(--s-7); min-height: 56px; }
   #clients .logos > img { height: var(--logo-h, 32px); }
@@ -139,6 +182,7 @@ html:lang(ko) :is(h2, h3) { line-height: 1.24; letter-spacing: -0.02em; }
           </div>
         </div>
       </div>
+      <div class="nav__item"><a class="nav__link" href="#calc">계산기</a></div>
       <div class="nav__item"><a class="nav__link" href="#property">부동산</a></div>
       <div class="nav__item"><a class="nav__link" href="#clients">고객</a></div>
       <div class="nav__item"><a class="nav__link" href="#process">절차</a></div>
@@ -153,38 +197,30 @@ html:lang(ko) :is(h2, h3) { line-height: 1.24; letter-spacing: -0.02em; }
   </div>
 </header>
 <main id="top">
-  <!-- HERO (film): the poster is a still of the client's own film, made with HyperFrames (film/); the play control
-       swaps it for the film in the frame. Phones get the portrait cut. -->
-  <section class="hero hero--film" data-enter aria-labelledby="hero-h">
-    <div class="wrap"><div class="hero-text hero__in">
-      <div class="hero__media hero__fill">
-        <picture>
-          <source media="(max-aspect-ratio: 1/1)" srcset="media/film/poster-9x16.jpg">
-          <img src="media/film/poster-16x9-1280.jpg" srcset="media/film/poster-16x9-1280.jpg 1280w, media/film/poster-16x9.jpg 1920w" sizes="(max-width: 1440px) 100vw, 1280px" width="1280" height="720" alt="감정평가서의 시가 43.0억 원이 상속세 신고서의 상속재산가액으로 그대로 옮겨지는 장면" style="--ly-pos: 60% 40%; --ly-pos-phone: 50% 0%" fetchpriority="high" data-source="client" data-subject="film still">
-        </picture>
-        <div class="hero__over">
-          <div>
-            <h1 id="hero-h">부동산 감정평가와 세무를 한 법인에서</h1>
-            <p class="hero__lead">상속·증여·양도 때 시가를 정하는 감정평가와 그 가액으로 내는 세금 신고를, 서울 역삼동의 세무사와 감정평가사가 한 팀으로 맡습니다.</p>
-            <div class="btn-row"><a class="btn btn--primary" href="#booking">상담 예약하기<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="#services">업무 보기</a></div>
-          </div>
-          <button class="ly-play" type="button" data-film="media/film/hero-16x9.mp4" data-film-phone="media/film/hero-9x16.mp4">
-            <span class="ly-play__disc"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4.5 2.6v12.8c0 .8.9 1.3 1.6.9l10.3-6.4c.6-.4.6-1.3 0-1.7L6.1 1.7c-.7-.4-1.6.1-1.6.9Z" fill="currentColor"/></svg></span>
-            <span class="ly-play__label">소개 영상 보기<small>평가서에서 신고서까지, 0:24</small></span>
-          </button>
+  <!-- HERO: the words on the page ground, the client's own film (HyperFrames, film/) playing at once, muted and
+       looping, with a pause button; reduced motion shows its still. Upright screens get the portrait cut. -->
+  <section class="hero hero--play" data-enter aria-labelledby="hero-h">
+    <div class="wrap">
+      <div class="hero-text play__grid">
+        <div class="play__copy">
+          <p class="play__chips" aria-label="보유 자격"><span>세무사</span><span>감정평가사</span></p>
+          <h1 id="hero-h">부동산 감정평가와 세무를 한 법인에서</h1>
+          <p class="hero__lead">상속·증여·양도 때 시가를 정하는 감정평가와 그 가액으로 내는 세금 신고를, 서울 역삼동의 세무사와 감정평가사가 한 팀으로 맡습니다.</p>
+          <div class="btn-row"><a class="btn btn--primary" href="#booking">상담 예약하기<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="#calc">시가 계산해 보기</a></div>
         </div>
+        <figure class="play__film">
+          <video id="hero-film" muted loop playsinline autoplay preload="auto" poster="media/film/poster-16x9-1280.jpg" aria-label="소개 영상: 감정평가서의 시가 43.0억 원이 상속세 신고서의 상속재산가액으로 그대로 옮겨지는 과정" width="1920" height="1080">
+            <source src="media/film/hero-9x16.mp4" type="video/mp4" media="(max-width: 639px)">
+            <source src="media/film/hero-16x9.mp4" type="video/mp4">
+          </video>
+          <button class="play__toggle" type="button" aria-pressed="false" aria-label="영상 일시정지">
+            <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h2v10H5zM9 3h2v10H9z" fill="currentColor"/></svg>
+            <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6c0 .6.7 1 1.2.7l7.6-4.8c.5-.3.5-1 0-1.3L6.2 2.5C5.7 2.2 5 2.6 5 3.2Z" fill="currentColor"/></svg>
+          </button>
+        </figure>
       </div>
-    </div></div>
+    </div>
   </section>
-  <script>
-    /* the portrait cut of the film on an upright screen (layout.js reads data-film when it starts) */
-    (function () {
-      var b = document.querySelector('.hero--film .ly-play');
-      if (b && matchMedia('(max-aspect-ratio: 1/1)').matches) b.dataset.film = b.dataset.filmPhone;
-      var m = b && b.closest('.hero__media');
-      if (m) m.addEventListener('ended', function () { m.classList.add('is-ended'); }, true);
-    })();
-  </script>
 
   <section class="section" id="services" style="--hm: 2" aria-labelledby="services-h">
     <div class="wrap">
@@ -195,12 +231,12 @@ html:lang(ko) :is(h2, h3) { line-height: 1.24; letter-spacing: -0.02em; }
             <p>세무 신고나 감정평가 한 가지만 맡겨도 됩니다. 두 업무가 겹치는 상속·증여·양도에서 차이가 가장 큽니다.</p>
           </div>
           <ul class="rows">
-            <li id="svc-inherit"><span class="rows__name">상속·증여 재산 평가와 신고</span><p>시가 감정부터 상속세·증여세 신고까지 함께 맡습니다.</p><span class="rows__value">감정평가 · 세무</span></li>
-            <li id="svc-transfer"><span class="rows__name">양도소득세 신고</span><p>취득가액이 없으면 취득 당시 감정가액으로 신고합니다.</p><span class="rows__value">감정평가 · 세무</span></li>
-            <li id="svc-revalue"><span class="rows__name">법인 자산재평가</span><p>토지·건물을 시가로 다시 매기고 법인세 영향을 계산합니다.</p><span class="rows__value">감정평가 · 세무</span></li>
-            <li id="svc-compensation"><span class="rows__name">토지 보상평가</span><p>수용 토지를 평가하고 보상금 양도세 감면을 따집니다.</p><span class="rows__value">감정평가 · 세무</span></li>
-            <li id="svc-collateral"><span class="rows__name">담보·경매·소송 감정</span><p>금융기관 담보평가와 법원 경매·소송 감정을 맡습니다.</p><span class="rows__value">감정평가</span></li>
-            <li id="svc-books"><span class="rows__name">기장과 세무조정</span><p>장부, 법인세·종합소득세 신고, 세무조사 대응을 맡습니다.</p><span class="rows__value">세무</span></li>
+            <li id="svc-inherit"><a class="svc" href="#booking" data-topic="상속·증여 재산 평가와 신고"><span class="rows__name">상속·증여 재산 평가와 신고</span><p>시가 감정부터 상속세·증여세 신고까지 함께 맡습니다.</p><span class="rows__value">감정평가 · 세무</span></a></li>
+            <li id="svc-transfer"><a class="svc" href="#booking" data-topic="양도소득세 신고"><span class="rows__name">양도소득세 신고</span><p>취득가액이 없으면 취득 당시 감정가액으로 신고합니다.</p><span class="rows__value">감정평가 · 세무</span></a></li>
+            <li id="svc-revalue"><a class="svc" href="#booking" data-topic="법인 자산재평가"><span class="rows__name">법인 자산재평가</span><p>토지·건물을 시가로 다시 매기고 법인세 영향을 계산합니다.</p><span class="rows__value">감정평가 · 세무</span></a></li>
+            <li id="svc-compensation"><a class="svc" href="#booking" data-topic="토지 보상평가"><span class="rows__name">토지 보상평가</span><p>수용 토지를 평가하고 보상금 양도세 감면을 따집니다.</p><span class="rows__value">감정평가 · 세무</span></a></li>
+            <li id="svc-collateral"><a class="svc" href="#booking" data-topic="담보·경매·소송 감정"><span class="rows__name">담보·경매·소송 감정</span><p>금융기관 담보평가와 법원 경매·소송 감정을 맡습니다.</p><span class="rows__value">감정평가</span></a></li>
+            <li id="svc-books"><a class="svc" href="#booking" data-topic="기장과 세무조정"><span class="rows__name">기장과 세무조정</span><p>장부, 법인세·종합소득세 신고, 세무조사 대응을 맡습니다.</p><span class="rows__value">세무</span></a></li>
           </ul>
         </div>
         <div class="frame frame--photo frame--fill span-6 start-7">
@@ -214,6 +250,42 @@ html:lang(ko) :is(h2, h3) { line-height: 1.24; letter-spacing: -0.02em; }
     <div class="wrap">
       <p class="t-label">한 팀으로 일하는 이유</p>
       <p class="mo-wh__text">상속세는 감정가액에서 시작합니다. 평가액이 1억 원 달라지면 과세가액도 1억 원 달라집니다. 그래서 평가 기준일과 평가 대상을 정하는 일부터 <strong>신고서를 쓰는 세무사</strong>와 함께 합니다.</p>
+    </div>
+  </section>
+
+  <!-- CALCULATOR: three rules from the inheritance and gift tax act, worked live in the browser -->
+  <section class="section" id="calc" aria-labelledby="calc-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="calc-h">시가와 신고기한 미리 계산</h2>
+        <p>숫자를 바꾸면 바로 계산합니다. 법령의 기본 규칙만 반영한 참고용이며, 실제 신고 전에는 상담으로 확인하세요.</p>
+      </div>
+      <div class="grid calc fill">
+        <div class="calc__card span-4">
+          <h3>감정평가는 몇 곳에서</h3>
+          <div class="field"><label for="c-base">기준시가 (억 원)</label><input id="c-base" type="number" inputmode="decimal" min="0" step="0.1" value="12.5"></div>
+          <div class="calc__viz" id="v-base" aria-hidden="true"><span class="calc__mark" style="--x: 50%"><i>10억</i></span><span class="calc__dot" style="--x: 62.5%"></span><span class="calc__ends"><i>0</i><i>20억+</i></span></div>
+          <output class="calc__out" for="c-base" id="c-base-out" aria-live="polite"><span class="calc__big">2곳</span><span class="calc__note">10억 원을 넘으면 두 감정기관 평가액의 평균을 시가로 봅니다.</span></output>
+        </div>
+        <div class="calc__card span-4">
+          <h3>시가는 두 감정가액의 평균</h3>
+          <div class="calc__pair">
+            <div class="field"><label for="c-a">감정가액 A (억 원)</label><input id="c-a" type="number" inputmode="decimal" min="0" step="0.1" value="42.6"></div>
+            <div class="field"><label for="c-b">감정가액 B (억 원)</label><input id="c-b" type="number" inputmode="decimal" min="0" step="0.1" value="43.4"></div>
+          </div>
+          <div class="calc__viz" id="v-avg" aria-hidden="true"><span class="calc__dot calc__dot--ghost" data-k="a"><i>A</i></span><span class="calc__dot calc__dot--ghost" data-k="b"><i>B</i></span><span class="calc__dot" data-k="m"><i>시가</i></span><span class="calc__ends"><i data-k="lo"></i><i data-k="hi"></i></span></div>
+          <output class="calc__out" for="c-a c-b" id="c-avg-out" aria-live="polite"><span class="calc__big">43.0억 원</span><span class="calc__note">신고서의 재산가액으로 그대로 씁니다.</span></output>
+        </div>
+        <div class="calc__card span-4">
+          <h3>신고기한</h3>
+          <div class="calc__pair">
+            <div class="field"><label for="c-kind">구분</label><select id="c-kind"><option value="6">상속</option><option value="3">증여</option></select></div>
+            <div class="field"><label for="c-date">상속개시일·증여일</label><input id="c-date" type="date"></div>
+          </div>
+          <div class="calc__viz" id="v-due" aria-hidden="true"><span class="calc__fill"></span><span class="calc__dot"><i>오늘</i></span><span class="calc__ends"><i>개시일</i><i>기한</i></span></div>
+          <output class="calc__out" for="c-kind c-date" id="c-due-out" aria-live="polite"><span class="calc__big">-</span><span class="calc__note">기한 안에 신고하면 세액의 3%를 공제받습니다.</span></output>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -300,8 +372,8 @@ html:lang(ko) :is(h2, h3) { line-height: 1.24; letter-spacing: -0.02em; }
         </ol>
         <!-- one still diagram (a service page holds it still): the one figure the appraisal sets, and the three
              places it is used -->
-        <div class="panel span-6 start-7" data-dg-still>
-          <div class="dg" data-diagram><script type="application/json">{"layout": "lanes", "pulse": "none", "curve": "curve",
+        <div class="panel span-6 start-7">
+          <div class="dg" data-diagram><script type="application/json">{"layout": "lanes", "curve": "curve", "motion": {"cycle": 3.2},
             "alt": "상속받은 건물 한 채의 감정평가서가 시가 43.0억 원을 정하고, 그 가액이 상속세 신고서, 나중에 팔 때의 취득가액, 상속인 사이의 분할 기준으로 쓰인다.",
             "input": {"label": "건물", "icon": "ui:building-2", "sub": "역삼동 근린생활시설"},
             "core": {"label": "감정평가서", "icon": "ui:file-check", "meta": "시가 43.0억 원"},
@@ -427,6 +499,72 @@ html:lang(ko) :is(h2, h3) { line-height: 1.24; letter-spacing: -0.02em; }
   </div>
 </footer>
 
+<script>
+  /* the hero film: plays at once (muted), a pause button, reduced motion keeps the still */
+  (function () {
+    var v = document.getElementById('hero-film'), b = document.querySelector('.play__toggle');
+    if (!v || !b) return;
+    function set(paused) { b.setAttribute('aria-pressed', paused ? 'true' : 'false'); b.setAttribute('aria-label', paused ? '영상 재생' : '영상 일시정지'); }
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); set(true); }
+    else { var p = v.play(); if (p && p.catch) p.catch(function () { set(true); }); }
+    b.addEventListener('click', function () { if (v.paused) { v.play(); set(false); } else { v.pause(); set(true); } });
+    if (matchMedia('(max-width: 639px)').matches) v.poster = 'media/film/poster-9x16.jpg';
+  })();
+</script>
+<script>
+  /* calculator (rules: 상증법 시행령 49조, 상증법 68·70조 신고기한, 신고세액공제 3%) */
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    var won = new Intl.NumberFormat('ko-KR', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
+    var dfmt = new Intl.DateTimeFormat('ko-KR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'short' });
+    function put(out, big, note) {
+      var b = out.querySelector('.calc__big');
+      if (b.textContent !== big) { b.classList.add('is-tick'); setTimeout(function () { b.textContent = big; b.classList.remove('is-tick'); }, 120); }
+      if (note) out.querySelector('.calc__note').textContent = note;
+    }
+    function base() {
+      var v = parseFloat($('c-base').value);
+      if (!(v >= 0)) return put($('c-base-out'), '-', '기준시가를 억 원 단위로 적어 주세요.');
+      $('v-base').querySelector('.calc__dot').style.setProperty('--x', Math.min(v / 20, 1) * 100 + '%');
+      if (v > 10) put($('c-base-out'), '2곳', '10억 원을 넘으면 두 감정기관 평가액의 평균을 시가로 봅니다.');
+      else put($('c-base-out'), '1곳', '10억 원 이하는 한 감정기관의 평가액도 시가로 인정됩니다.');
+    }
+    function avg() {
+      var a = parseFloat($('c-a').value), b = parseFloat($('c-b').value);
+      if (!(a > 0 && b > 0)) return put($('c-avg-out'), '-', '두 감정가액을 모두 적어 주세요.');
+      var lo = Math.min(a, b), hi = Math.max(a, b), pad = Math.max((hi - lo) * 0.6, hi * 0.02), L = lo - pad, H = hi + pad;
+      var pos = function (x) { return ((x - L) / (H - L)) * 100 + '%'; }, vz = $('v-avg');
+      vz.querySelector('[data-k=a]').style.setProperty('--x', pos(a));
+      vz.querySelector('[data-k=b]').style.setProperty('--x', pos(b));
+      vz.querySelector('[data-k=m]').style.setProperty('--x', pos((a + b) / 2));
+      vz.querySelector('i[data-k=lo]').textContent = won.format(L) + '억';
+      vz.querySelector('i[data-k=hi]').textContent = won.format(H) + '억';
+      put($('c-avg-out'), won.format((a + b) / 2) + '억 원', '신고서의 재산가액으로 그대로 씁니다.');
+    }
+    function due() {
+      var m = +$('c-kind').value, d = $('c-date').value;
+      if (!d) return put($('c-due-out'), '-', '날짜를 고르면 기한을 계산합니다.');
+      var p = d.split('-'), y = +p[0], mo = +p[1] - 1;
+      var end = new Date(y, mo + m + 1, 0);
+      var today = new Date(); today.setHours(0, 0, 0, 0);
+      var left = Math.round((end - today) / 864e5);
+      var note = (m === 6 ? '상속개시일' : '증여일') + '이 속한 달의 말일부터 ' + m + '개월. ' + (left >= 0 ? left + '일 남았습니다. 기한이 휴일이면 다음 영업일까지입니다.' : '기한이 지났습니다. 기한 후 신고도 상담할 수 있습니다.');
+      var start = new Date(y, mo, +p[2]), frac = Math.max(0, Math.min(1, (today - start) / (end - start || 1)));
+      var vd = $('v-due'); vd.querySelector('.calc__fill').style.setProperty('--x', frac * 100 + '%'); vd.querySelector('.calc__dot').style.setProperty('--x', frac * 100 + '%');
+      put($('c-due-out'), dfmt.format(end), note);
+    }
+    var t = new Date(); t.setDate(t.getDate() - 20);
+    $('c-date').value = t.toISOString().slice(0, 10);
+    ['c-base'].forEach(function (id) { $(id).addEventListener('input', base); });
+    ['c-a', 'c-b'].forEach(function (id) { $(id).addEventListener('input', avg); });
+    ['c-kind', 'c-date'].forEach(function (id) { $(id).addEventListener('input', due); $(id).addEventListener('change', due); });
+    base(); avg(); due();
+    /* a service row opens the form on its topic */
+    document.querySelectorAll('a.svc[data-topic]').forEach(function (a) {
+      a.addEventListener('click', function () { var s = $('f-topic'); if (s) s.value = a.dataset.topic; });
+    });
+  })();
+</script>
 <nav class="actionbar" aria-label="빠른 메뉴">
   <a class="btn btn--primary" href="#booking">상담 예약하기</a>
 </nav>
