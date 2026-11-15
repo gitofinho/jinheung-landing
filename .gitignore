@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+dist/
+.env*
+renders/
+# design-taste checks: screenshots, Chrome profiles and check output (machine-local)
+shots/
+.taste-skill/chrome-*/
+.taste-skill/consistency/
+.taste-skill/consistency.txt
+.taste-skill/build.json
