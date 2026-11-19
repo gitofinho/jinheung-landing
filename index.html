@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@400&display=swap">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#main">본문 바로가기</a>
@@ -57,6 +58,7 @@
           <img data-kind="1" src="assets/img/photo-f121586717-1600.jpg" srcset="assets/img/photo-f121586717-960.jpg 960w, assets/img/photo-f121586717-1600.jpg 1600w" sizes="(min-width: 60rem) 55vw, 100vw" width="1600" height="720" alt="노원구의 아파트 단지" decoding="async">
           <img data-kind="2" src="assets/img/photo-f7570844-1600.jpg" srcset="assets/img/photo-f7570844-960.jpg 960w, assets/img/photo-f7570844-1600.jpg 1600w" sizes="(min-width: 60rem) 55vw, 100vw" width="1600" height="1064" alt="산 아래 논과 농지" decoding="async">
           <img data-kind="3" src="assets/img/photo-f151072483-1600.jpg" srcset="assets/img/photo-f151072483-960.jpg 960w, assets/img/photo-f151072483-1600.jpg 1600w" sizes="(min-width: 60rem) 55vw, 100vw" width="1600" height="1202" alt="여의도의 업무용 빌딩" decoding="async">
+          <span class="photo-tag" id="kind-tag" data-keep aria-hidden="true">꼬마빌딩·상가</span>
         </div>
         <figcaption id="kind-note" aria-live="polite">기준시가와 시가 차이가 커 국세청이 직접 감정을 의뢰하기도 합니다.</figcaption>
       </figure>
@@ -100,9 +102,19 @@
 
   <section class="sec" id="services" aria-labelledby="svc-h">
     <div class="container split-rows">
-      <div class="head">
-        <h2 id="svc-h">어떤 일을 맡길 수 있나요?</h2>
-        <p class="lead">한 가지만 맡기셔도 됩니다. 줄을 누르면 그 분야로 상담 신청서가 채워집니다.</p>
+      <div class="side">
+        <div class="head">
+          <h2 id="svc-h">어떤 일을 맡길 수 있나요?</h2>
+          <p class="lead">한 가지만 맡기셔도 됩니다. 줄을 누르면 그 분야로 상담 신청서가 채워집니다.</p>
+        </div>
+        <div class="svc-photo" data-slot="services" data-alt="업무 분야마다 법인이 실제로 다룬 부동산이나 현장 사진으로 교체">
+          <img class="is-on" data-i="0" src="assets/img/photo-contract-1280.jpg" width="1280" height="960" alt="만년필이 놓인 계약서" loading="lazy" decoding="async">
+          <img data-i="1" src="assets/img/photo-f126580208-960.jpg" width="960" height="635" alt="대치동의 아파트 단지" loading="lazy" decoding="async">
+          <img data-i="2" src="assets/img/photo-teheran-1280.jpg" width="1280" height="853" alt="테헤란로의 업무용 빌딩" loading="lazy" decoding="async">
+          <img data-i="3" src="assets/img/photo-expwy-1280.jpg" width="1280" height="960" alt="공사 중인 고속도로 교량" loading="lazy" decoding="async">
+          <img data-i="4" src="assets/img/photo-court-1280.jpg" width="1280" height="720" alt="서울서부지방법원 청사" loading="lazy" decoding="async">
+          <img data-i="5" src="assets/img/photo-taxoffice-1280.jpg" width="1280" height="960" alt="강남세무서 청사" loading="lazy" decoding="async">
+        </div>
       </div>
       <ul class="rows">
         <li><a class="svc" href="#contact" data-topic="상속·증여 재산 평가와 신고"><h3>상속·증여 재산 평가와 신고</h3><p>꼬마빌딩과 토지의 시가 감정부터 상속세, 증여세 신고와 세무조사 대응까지 맡습니다.</p><span class="label">감정평가와 세무</span><span class="svc__go">이 분야로 상담 신청</span></a></li>
@@ -115,7 +127,7 @@
     </div>
   </section>
 
-  <section class="sec sec--l band--deep" id="why" aria-labelledby="why-h">
+  <section class="sec sec--l band--cream" id="why" aria-labelledby="why-h">
     <div class="container">
       <div class="head head--split">
         <h2 id="why-h">따로 맡기면 무엇이 다른가요?</h2>
@@ -136,25 +148,22 @@
     </div>
   </section>
 
-  <section class="sec" id="process" aria-labelledby="proc-h">
+  <section class="sec band--deep" id="process" aria-labelledby="proc-h">
     <div class="container">
       <div class="head head--split">
         <h2 id="proc-h">의뢰하면 어떻게 진행되나요?</h2>
         <p class="lead">첫 상담에서 평가 대상과 신고기한을 정하고, 수수료는 서면으로 안내합니다.</p>
       </div>
-      <div class="showcase" data-slot="process" data-alt="감정평가사가 현장에서 도면과 건물을 확인하는 사진">
-        <img src="assets/img/photo-f119221397.jpg" width="1280" height="640" alt="손에 든 건물 평면도" loading="lazy" decoding="async">
-      </div>
       <ol class="steps">
-        <li><h3>상담과 서류 확인</h3><p>등기부등본, 가족관계증명서, 취득 당시 계약서 등 필요한 서류 목록을 드립니다.</p><span class="label">세무사와 감정평가사</span></li>
-        <li><h3>서면 견적과 일정</h3><p>평가 대상, 평가 기준일, 신고기한을 확정하고 수수료를 서면으로 알려 드립니다.</p><span class="label">세무사</span></li>
-        <li><h3>현장 조사와 감정평가</h3><p>감정평가사가 현장을 확인하고 평가서를 씁니다. 두 곳 감정이 필요하면 일정을 맞춥니다.</p><span class="label">감정평가사</span></li>
-        <li><h3>신고와 사후 관리</h3><p>평가서 가액으로 신고서를 내고, 세무서의 소명 요청과 조사에 대응합니다.</p><span class="label">세무사</span></li>
+        <li><div class="step-photo" data-slot="process" data-alt="상담과 서류 확인 단계의 실제 업무 사진으로 교체"><img src="assets/img/photo-c877-960.jpg" width="960" height="641" alt="쌓여 있는 서류철과 책" loading="lazy" decoding="async"></div><h3>상담과 서류 확인</h3><p>등기부등본, 가족관계증명서, 취득 당시 계약서 등 필요한 서류 목록을 드립니다.</p><span class="label">세무사와 감정평가사</span></li>
+        <li><div class="step-photo" data-slot="process" data-alt="서면 견적과 일정 단계의 실제 업무 사진으로 교체"><img src="assets/img/photo-f119221397.jpg" width="1280" height="640" alt="손에 든 건물 평면도" loading="lazy" decoding="async"></div><h3>서면 견적과 일정</h3><p>평가 대상, 평가 기준일, 신고기한을 확정하고 수수료를 서면으로 알려 드립니다.</p><span class="label">세무사</span></li>
+        <li><div class="step-photo" data-slot="process" data-alt="현장 조사와 감정평가 단계의 실제 업무 사진으로 교체"><img src="assets/img/photo-survey-1280.jpg" width="1280" height="960" alt="건물 앞에 세운 측량 장비" loading="lazy" decoding="async"></div><h3>현장 조사와 감정평가</h3><p>감정평가사가 현장을 확인하고 평가서를 씁니다. 두 곳 감정이 필요하면 일정을 맞춥니다.</p><span class="label">감정평가사</span></li>
+        <li><div class="step-photo" data-slot="process" data-alt="신고와 사후 관리 단계의 실제 업무 사진으로 교체"><img src="assets/img/photo-taxoffice2-1280.jpg" width="1280" height="960" alt="세무서 청사" loading="lazy" decoding="async"></div><h3>신고와 사후 관리</h3><p>평가서 가액으로 신고서를 내고, 세무서의 소명 요청과 조사에 대응합니다.</p><span class="label">세무사</span></li>
       </ol>
     </div>
   </section>
 
-  <section class="sec" id="clients" aria-labelledby="cl-h">
+  <section class="sec band--cream" id="clients" aria-labelledby="cl-h">
     <div class="container">
       <div class="head head--split">
         <h2 id="cl-h">어느 곳과 일해 왔나요?</h2>
@@ -214,6 +223,9 @@
           <div><dt>답변</dt><dd>영업일 기준 하루 안에 담당 세무사 또는 감정평가사가 연락드립니다.</dd></div>
           <div><dt>준비하면 좋은 서류</dt><dd>등기부등본, 가족관계증명서, 취득 당시 매매계약서</dd></div>
         </dl>
+        <div class="office-photo" data-slot="office" data-alt="사무소 건물 외관이나 상담실 사진으로 교체">
+          <img src="assets/img/photo-f148427053.jpg" width="1280" height="960" alt="창동에서 바라본 강남 일대" loading="lazy" decoding="async">
+        </div>
       </div>
       <form class="form" id="form" action="mailto:consult@jinheung.example" method="post" enctype="text/plain" novalidate>
         <div class="field"><label for="f-name">이름</label><input id="f-name" name="name" autocomplete="name" required aria-describedby="e-name"><p class="err" id="e-name">이름을 입력해 주세요.</p></div>
@@ -259,7 +271,7 @@
       </nav>
     </div>
     <div class="foot__small">
-      <p data-credits>사진: kallerna (CC BY-SA 4.0), Ox1997cow (CC BY-SA 3.0), riNux (CC BY-SA 2.0), S h y numis (CC BY 4.0), Bajoga2021 (CC BY-SA 4.0), Wikimedia Commons. 자세한 출처는 <a class="text-link" href="credits.html">사진 출처</a>에 있습니다.</p>
+      <p data-credits>사진: kallerna (CC BY-SA 4.0), Ox1997cow (CC BY-SA 3.0, 4.0), riNux (CC BY-SA 2.0), S h y numis (CC BY 4.0), Bajoga2021 (CC BY-SA 4.0), Nenad Stojkovic (CC BY 2.0), Blogtrepreneur (CC BY 2.0), hyolee2 (CC BY-SA 3.0), Fumihiko Ueno (CC BY 3.0), Jhcbs1019 (CC BY-SA 4.0), Mykim5902 (CC BY-SA 4.0), 95016maphack (CC0), Syced (CC0), Wikimedia Commons. 자세한 출처는 <a class="text-link" href="credits.html">사진 출처</a>에 있습니다.</p>
       <p>표기된 기관과 기업의 이름, 로고는 각 소유자의 상표입니다. 계산기 결과는 참고용이며 세무 자문을 대신하지 않습니다.</p>
       <p>&copy; 2026 진흥세무감정평가법인</p>
     </div>
@@ -301,6 +313,7 @@
     kinds.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
     $$('.hero__photo > img').forEach(function (im) { im.classList.toggle('is-on', im.dataset.kind === k); });
     $('#kind-note').textContent = notes[+k];
+    $('#kind-tag').textContent = btn.firstChild.textContent;
   }
   kinds.forEach(function (b) {
     b.addEventListener('click', function () { pick(b); });
@@ -310,6 +323,15 @@
 
   // Service rows fill the form's topic
   $$('[data-topic]').forEach(function (a) { a.addEventListener('click', function () { $('#f-topic').value = a.dataset.topic; }); });
+
+  var svcs = $$('.svc');
+  function show(a) {
+    var i = String(svcs.indexOf(a));
+    svcs.forEach(function (x) { x.classList.toggle('is-on', x === a); });
+    $$('.svc-photo > img').forEach(function (im) { im.classList.toggle('is-on', im.dataset.i === i); });
+  }
+  svcs.forEach(function (a) { a.addEventListener('mouseenter', function () { show(a); }); a.addEventListener('focus', function () { show(a); }); });
+  if (svcs[0]) svcs[0].classList.add('is-on');
 
   // Client filter
   $$('.chip').forEach(function (c) { c.addEventListener('click', function () {
